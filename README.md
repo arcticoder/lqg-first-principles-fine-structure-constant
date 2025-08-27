@@ -7,17 +7,26 @@
 
 This repository contains a research-stage implementation that explores a first-principles derivation of the fine-structure constant α using Loop Quantum Gravity (LQG) ideas and numerical experiments. The materials here document a derivation approach, numerical experiments, and an uncertainty-quantification (UQ) workflow. Results reported in this README are from example runs and should be interpreted in the context of the accompanying technical documentation and reproducibility artifacts.
 
+# LQG First-Principles Fine-Structure Constant (Research-stage)
+
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+[![UQ Status](https://img.shields.io/badge/UQ_Status-REPORTED-orange.svg)](docs/technical-documentation.md)
+
+## Overview
+
+This repository contains a research-stage implementation that explores a first-principles derivation of the fine-structure constant α using Loop Quantum Gravity (LQG) ideas and numerical experiments. The materials document a derivation approach, numerical experiments, and an uncertainty-quantification (UQ) workflow. Results reported in this README are example-run outputs and should be interpreted in the context of the accompanying technical documentation and reproducibility artifacts.
+
 ### Key (Reported) Results — Example Run
 
-- **Reported example center (example-run):** α ≈ 7.2973525643×10⁻³ (reported by the included example run; see `FINAL_CODATA_ACHIEVEMENT_REPORT.md` for the full artifact).
-- **Reported 95% CI (example-run):** approximately ±2.94×10⁻⁶ (reported CI from the example analysis; see `UQ_RESOLUTION_SUMMARY.md` for methods and assumptions).
-- **UQ & validation status (research-stage):** the repository includes a UQ workflow and example scripts; some model and numerical assumptions remain to be independently reproduced and stress-tested by domain reviewers.
+- **Example-run reported center:** α ≈ 7.2973525643×10⁻³ (reported by an included example run; see `FINAL_CODATA_ACHIEVEMENT_REPORT.md` for the full artifact).
+- **Example-run reported 95% CI:** approximately ±2.94×10⁻⁶ (reported CI from the example analysis; see `UQ_RESOLUTION_SUMMARY.md` for methods and assumptions).
+- **UQ & validation status (research-stage):** the repository includes a documented UQ workflow and example scripts; model and numerical assumptions should be independently reproduced and stress-tested by domain reviewers before interpreting the numbers as robust.
 
-Note: the numerical values above are reported from specific example runs of the code in this repository. They are not presented here as absolute, production-grade claims. Users should consult the technical documentation and reproduce the analyses to verify sensitivity to choices of parameters, discretization, and numerical tolerances.
+Note: the numerical values above are example-run outputs and are not production-grade claims. Reproduce the analyses with parameter sweeps, different seeds, and independent environments to assess sensitivity to implementation choices and numerical tolerances.
 
 ## Mathematical Framework
 
-The derivation builds upon **eight revolutionary mathematical enhancements** discovered through comprehensive physics research:
+The derivation presents a proposed integration of ideas and methods; the sections below summarize methodological assumptions and model choices used in the example analyses.
 
 ### 1. **LQG-Enhanced QED Beta Function**
 ```math
@@ -63,7 +72,8 @@ lqg-first-principles-fine-structure-constant/
 
 ## Reported Precision and Confidence Intervals (example-run)
 
-The project includes example analysis artifacts that report an estimated center and confidence interval from the computation pipeline. Those artifacts are available in `FINAL_CODATA_ACHIEVEMENT_REPORT.md` and `UQ_RESOLUTION_SUMMARY.md`. The numerical outputs in those artifacts are reported results from specific computational runs and depend on implementation choices, parameter settings, and numerical tolerances. Reproduction and independent verification are required before treating these values as robust.
+The project includes example analysis artifacts that report an estimated center and confidence interval from the computation pipeline. Those artifacts are available in `FINAL_CODATA_ACHIEVEMENT_REPORT.md` and `UQ_RESOLUTION_SUMMARY.md`. The numerical outputs in those artifacts are example-run results and depend on implementation choices, parameter settings, and numerical tolerances. Reproduction and independent verification are required before treating these values as robust.
+
 ## Uncertainty Quantification (UQ) — Notes and Pointers
 
 The repository includes a documented UQ workflow and example analyses. The maintainers provide artifacts and code to reproduce the reported analysis; however, the reported status is research-stage and requires independent verification. Key references and artifacts include:
@@ -100,20 +110,18 @@ print(f"CI = [{results['final_ci']['ci_lower']:.12e}, {results['final_ci']['ci_u
 print(f"Achievement level: {results['achievement']['success_level']}")
 ```
 
-### Expected Output
+### Expected Output (example-run)
 ```
-🎯 FINAL CODATA ALPHA PRECISION IMPLEMENTATION
-===============================================
-🎯 Exact CODATA center: 7.297352564300e-03
-📊 Final CI: [7.294412564300e-03, 7.300292564300e-03]
-🏆 Achievement level: EXCELLENT
-✅ TARGET FORMAT ACHIEVED OR EXCEEDED
-🎉 Approaching α_theoretical = 7.2973525643×10⁻³ with optimal precision!
+FINAL CODATA ALPHA PRECISION IMPLEMENTATION (example-run)
+--------------------------------------------------------
+Exact CODATA center (reference): 7.297352564300e-03
+Example-run CI: [7.294412564300e-03, 7.300292564300e-03]
+Note: the block above shows a formatted example-run output produced by the included scripts. It is intended as a reproducibility artifact rather than a claim of meeting CODATA standards in production environments.
 ```
 
 ## Mathematical Foundation
 
-The derivation represents a **revolutionary unification** of:
+The derivation presents a proposed integration of ideas from multiple areas; the sections below summarize methodological assumptions and model choices used in the example analyses.
 
 ### **Loop Quantum Gravity (LQG)**
 - Discrete quantum geometry with polymer quantization
@@ -125,10 +133,9 @@ The derivation represents a **revolutionary unification** of:
 - Running coupling evolution: `dα/d ln μ = β_enhanced(α)`
 - Higher-order loop effects with LQG modifications
 
-### **First-Principles Integration**
-- No phenomenological parameters or fitting
-- Direct derivation from fundamental quantum geometry
-- Complete uncertainty quantification with physics validation
+### **First-Principles Integration (caveats)**
+- The approach aims to minimize phenomenological fitting, but implementations include intermediate parameter choices and numerical regularizations.
+- Independent analytic checks, reproducibility artifacts, and peer review are necessary for strong physical claims.
 
 ## License
 
